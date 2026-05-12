@@ -9,26 +9,22 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-extrabold text-foreground tracking-tighter">404</h1>
-        <h2 className="mt-4 text-xl font-bold uppercase tracking-widest text-foreground">
-          Stránka nenalezena
-        </h2>
+        <h1 className="text-7xl font-bold text-foreground">404</h1>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Stránka, kterou hledáte, neexistuje nebo byla přesunuta.
+          The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-foreground px-5 py-3 text-xs font-bold uppercase tracking-widest text-background hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Zpět na úvod
+            Go home
           </Link>
         </div>
       </div>
@@ -43,11 +39,11 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-bold uppercase tracking-widest text-foreground">
-          Stránka se nenačetla
+        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+          This page didn't load
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Něco se na naší straně pokazilo. Zkuste obnovit stránku nebo se vraťte na úvod.
+          Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -55,15 +51,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center bg-foreground px-5 py-3 text-xs font-bold uppercase tracking-widest text-background hover:bg-accent"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Zkusit znovu
+            Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center border-2 border-foreground bg-background px-5 py-3 text-xs font-bold uppercase tracking-widest text-foreground hover:bg-foreground hover:text-background"
+            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Zpět na úvod
+            Go home
           </a>
         </div>
       </div>
@@ -76,28 +72,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "City4you s.r.o. — Stavební a zemní práce v MS kraji" },
-      {
-        name: "description",
-        content:
-          "Kvalitní stavební a zemní práce v Moravskoslezském kraji. Výkopy, pokládka dlažby, odvodnění a demolice s vlastní technikou.",
-      },
-      { name: "author", content: "City4you s.r.o." },
-      { property: "og:title", content: "City4you s.r.o. — Stavební a zemní práce" },
-      {
-        property: "og:description",
-        content: "Kvalitní stavební a zemní práce v Moravskoslezském kraji.",
-      },
+      { title: "Lovable App" },
+      { name: "description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cf7f9705-371a-4ef7-ab06-87b34ac43c08/id-preview-5de8a5d8--aaf6f6ad-1952-4d29-b72b-b7369a475e04.lovable.app-1778576944204.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cf7f9705-371a-4ef7-ab06-87b34ac43c08/id-preview-5de8a5d8--aaf6f6ad-1952-4d29-b72b-b7369a475e04.lovable.app-1778576944204.png" },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap",
+        href: appCss,
       },
     ],
   }),
@@ -109,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="cs">
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -126,13 +117,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col bg-background text-foreground">
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-      </div>
+      <Outlet />
     </QueryClientProvider>
   );
 }
