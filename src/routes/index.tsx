@@ -7,6 +7,9 @@ import projDrenaz from "@/assets/real-project-3.jpg";
 import projTrat from "@/assets/real-project-4.jpg";
 import projNamesti from "@/assets/real-project-5.jpg";
 import projBazen from "@/assets/real-project-6.jpg";
+import partner1 from "@/assets/partner-1.jpg";
+import partner2 from "@/assets/partner-2.jpg";
+import partner3 from "@/assets/partner-3.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,12 +34,18 @@ const services = [
 ];
 
 const projects = [
-  { img: projTrat, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
-  { img: projNamesti, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
-  { img: projVykop, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
-  { img: projDlazba, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
-  { img: projBazen, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
+  { img: projVykop, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
+  { img: projBazen, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
+  { img: projNamesti, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
+  { img: projTrat, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
+  { img: projDlazba, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
   { img: projDrenaz, title: "Odvodnění a drenáž", tag: "Průmysl", year: "2023" },
+];
+
+const partners = [
+  { img: partner1, name: "Partner 1" },
+  { img: partner2, name: "Partner 2" },
+  { img: partner3, name: "Partner 3" },
 ];
 
 function Index() {
@@ -174,6 +183,33 @@ function Index() {
                 </span>
               </div>
             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="px-6 lg:px-20 py-16 lg:py-20 border-t border-foreground/10 bg-secondary">
+        <div className="mb-10">
+          <span className="font-mono text-xs uppercase tracking-[0.2em] text-foreground/50">
+            / Partneři
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-extrabold tracking-tighter mt-4 uppercase">
+            Spolupracujeme s
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center">
+          {partners.map((p) => (
+            <div
+              key={p.name}
+              className="bg-background border border-foreground/10 p-8 flex items-center justify-center h-32"
+            >
+              <img
+                src={p.img}
+                alt={p.name}
+                loading="lazy"
+                className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all"
+              />
+            </div>
           ))}
         </div>
       </section>
