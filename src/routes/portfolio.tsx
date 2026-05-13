@@ -23,35 +23,35 @@ export const Route = createFileRoute("/portfolio")({
 
 const projects = [
   {
-    img: projTrat,
+    img: projVykop,
     title: "Oprava trati v úseku Krnov – Skrochovice",
     cat: "Železniční stavby",
     year: "2024",
     desc: "Zemní práce a úpravy spodku trati v rámci celkové opravy úseku.",
   },
   {
-    img: projNamesti,
+    img: projBazen,
     title: "Realizace dlažeb — Nové Lauby Ostrava",
     cat: "Veřejné prostranství",
     year: "2024",
     desc: "Pokládka velkoformátové dlažby na nově revitalizovaném prostranství.",
   },
   {
-    img: projVykop,
+    img: projNamesti,
     title: "Zemní a výkopové práce — LF Ostrava-Vítkovice",
     cat: "Veřejná zakázka",
     year: "2024",
     desc: "Výkopy a příprava základů v areálu Lékařské fakulty.",
   },
   {
-    img: projDlazba,
+    img: projTrat,
     title: "Zemní práce a pokládka dlažby",
     cat: "Rezidenční",
     year: "2024",
     desc: "Komplexní úprava příjezdové cesty a okolí rodinného domu.",
   },
   {
-    img: projBazen,
+    img: projDlazba,
     title: "Dlažba a betonování lému bazénu",
     cat: "Soukromý projekt",
     year: "2023",
