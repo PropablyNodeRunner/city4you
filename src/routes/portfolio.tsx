@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/Section";
-import projDlazba from "@/assets/project-dlazba.jpg";
-import projVykop from "@/assets/project-vykop.jpg";
-import projDrenaz from "@/assets/project-drenaz.jpg";
-import projTrat from "@/assets/project-trat.jpg";
-import projNamesti from "@/assets/project-namesti.jpg";
-import projBazen from "@/assets/project-bazen.jpg";
+import projDlazba from "@/assets/real-project-1.jpg";
+import projVykop from "@/assets/real-project-2.jpg";
+import projDrenaz from "@/assets/real-project-3.jpg";
+import projTrat from "@/assets/real-project-4.jpg";
+import projNamesti from "@/assets/real-project-5.jpg";
+import projBazen from "@/assets/real-project-6.jpg";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({

@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/city4you-logo.png";
 
 const links = [
   { to: "/", label: "Úvod" },
@@ -16,9 +17,9 @@ export function SiteHeader() {
   return (
     <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b-4 border-foreground">
       <div className="px-6 lg:px-10 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-baseline gap-2" onClick={() => setOpen(false)}>
-          <span className="font-extrabold text-2xl tracking-tighter uppercase">City4you</span>
-          <span className="text-[10px] font-mono font-bold bg-primary text-primary-foreground px-1.5 py-0.5">
+        <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <img src={logo} alt="City4you s.r.o." className="h-9 w-auto" />
+          <span className="hidden sm:inline text-[10px] font-mono font-bold bg-primary text-primary-foreground px-1.5 py-0.5">
             MS KRAJ
           </span>
         </Link>
