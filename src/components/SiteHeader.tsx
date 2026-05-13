@@ -18,10 +18,12 @@ export function SiteHeader() {
     <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b-4 border-foreground">
       <div className="px-6 lg:px-10 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src={logo} alt="City4you s.r.o." className="h-9 w-auto" />
-          <span className="hidden sm:inline text-[10px] font-mono font-bold bg-primary text-primary-foreground px-1.5 py-0.5">
-            MS KRAJ
-          </span>
+          <img
+            src={logo}
+            alt="City4you s.r.o."
+            className="h-9 w-auto"
+            style={{ filter: "brightness(0)" }}
+          />
         </Link>
 
         <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest">
