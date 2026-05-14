@@ -7,9 +7,12 @@ import projDrenaz from "@/assets/real-project-3.jpg";
 import projTrat from "@/assets/real-project-4.jpg";
 import projNamesti from "@/assets/real-project-5.jpg";
 import projBazen from "@/assets/real-project-6.jpg";
-import partner1 from "@/assets/partner-1.jpg";
-import partner2 from "@/assets/partner-2.jpg";
-import partner3 from "@/assets/partner-3.jpg";
+import partner1 from "@/assets/partner-1.png";
+import partner2 from "@/assets/partner-2.png";
+import partner3 from "@/assets/partner-3.png";
+import partner4 from "@/assets/partner-4.png";
+import partner5 from "@/assets/partner-5.png";
+import partner6 from "@/assets/partner-6.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
