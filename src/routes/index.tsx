@@ -203,7 +203,7 @@ function Index() {
             Spolupracujeme s
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {partners.map((p) => (
             <div
               key={p.name}
