@@ -1,11 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/Section";
-import projDlazba from "@/assets/real-project-1.jpg";
-import projVykop from "@/assets/real-project-2.jpg";
-import projDrenaz from "@/assets/real-project-3.jpg";
-import projTrat from "@/assets/real-project-4.jpg";
-import projNamesti from "@/assets/real-project-5.jpg";
-import projBazen from "@/assets/real-project-6.jpg";
+import projectZemniDlazba from "@/assets/project-zemni-prace-dlazba.jpg";
+import projectBazenDlazba from "@/assets/project-bazen-dlazba.jpg";
+import projectOdvodneniDrenaz from "@/assets/project-odvodneni-drenaz.jpg";
+import projectKrnovSkrochovice from "@/assets/project-krnov-skrochovice.jpg";
+import projectNoveLauby from "@/assets/project-nove-lauby-ostrava.jpg";
+import projectLfVitkovice from "@/assets/project-lf-ostrava-vitkovice.jpg";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -23,46 +23,46 @@ export const Route = createFileRoute("/portfolio")({
 
 const projects = [
   {
-    img: projNamesti,
-    title: "Oprava trati v úseku Krnov – Skrochovice",
-    cat: "Železniční stavby",
-    year: "2024",
-    desc: "Zemní práce a úpravy spodku trati v rámci celkové opravy úseku.",
-  },
-  {
-    img: projDlazba,
-    title: "Realizace dlažeb — Nové Lauby Ostrava",
-    cat: "Veřejné prostranství",
-    year: "2024",
-    desc: "Pokládka velkoformátové dlažby na nově revitalizovaném prostranství.",
-  },
-  {
-    img: projBazen,
-    title: "Zemní a výkopové práce — LF Ostrava-Vítkovice",
-    cat: "Veřejná zakázka",
-    year: "2024",
-    desc: "Výkopy a příprava základů v areálu Lékařské fakulty.",
-  },
-  {
-    img: projVykop,
+    img: projectZemniDlazba,
     title: "Zemní práce a pokládka dlažby",
     cat: "Rezidenční",
     year: "2024",
     desc: "Komplexní úprava příjezdové cesty a okolí rodinného domu.",
   },
   {
-    img: projTrat,
+    img: projectBazenDlazba,
     title: "Dlažba a betonování lému bazénu",
     cat: "Soukromý projekt",
     year: "2023",
     desc: "Betonáž a pokládka kamenné dlažby okolo zahradního bazénu.",
   },
   {
-    img: projDrenaz,
+    img: projectOdvodneniDrenaz,
     title: "Odvodnění a drenáž",
     cat: "Průmyslový areál",
     year: "2023",
     desc: "Návrh a realizace drenážního systému průmyslové haly.",
+  },
+  {
+    img: projectKrnovSkrochovice,
+    title: "Oprava trati v úseku Krnov – Skrochovice",
+    cat: "Železniční stavby",
+    year: "2024",
+    desc: "Zemní práce a úpravy spodku trati v rámci celkové opravy úseku.",
+  },
+  {
+    img: projectNoveLauby,
+    title: "Realizace dlažeb — Nové Lauby Ostrava",
+    cat: "Veřejné prostranství",
+    year: "2024",
+    desc: "Pokládka velkoformátové dlažby na nově revitalizovaném prostranství.",
+  },
+  {
+    img: projectLfVitkovice,
+    title: "Zemní a výkopové práce — LF Ostrava-Vítkovice",
+    cat: "Veřejná zakázka",
+    year: "2024",
+    desc: "Výkopy a příprava základů v areálu Lékařské fakulty.",
   },
 ];
 
