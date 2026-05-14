@@ -49,6 +49,9 @@ const partners = [
   { img: partner1, name: "Partner 1" },
   { img: partner2, name: "Partner 2" },
   { img: partner3, name: "Partner 3" },
+  { img: partner4, name: "Městský obvod Poruba" },
+  { img: partner5, name: "Bystroň Group" },
+  { img: partner6, name: "Ostravské komunikace" },
 ];
 
 function Index() {
