@@ -37,11 +37,11 @@ const services = [
 ];
 
 const projects = [
-  { img: projVykop, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
-  { img: projBazen, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
-  { img: projNamesti, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
-  { img: projTrat, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
-  { img: projDlazba, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
+  { img: projNamesti, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
+  { img: projDlazba, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
+  { img: projBazen, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
+  { img: projVykop, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
+  { img: projTrat, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
   { img: projDrenaz, title: "Odvodnění a drenáž", tag: "Průmysl", year: "2023" },
 ];
 
