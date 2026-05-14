@@ -55,8 +55,8 @@ function Poptavka() {
           <div className="border-t border-foreground/10 pt-6 font-mono text-sm space-y-2">
             <p>
               <span className="opacity-50">TEL: </span>
-              <a href="tel:+420777000000" className="hover:text-primary">
-                +420 777 000 000
+              <a href="tel:+420736140001" className="hover:text-primary">
+                +420 736 140 001
               </a>
             </p>
             <p>
