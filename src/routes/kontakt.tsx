@@ -17,10 +17,10 @@ export const Route = createFileRoute("/kontakt")({
 });
 
 const items = [
-  { icon: Phone, label: "Telefon", value: "+420 777 000 000", href: "tel:+420777000000" },
+  { icon: Phone, label: "Telefon", value: "+420 736 140 001", href: "tel:+420736140001" },
   { icon: Mail, label: "Email", value: "info@city4you.cz", href: "mailto:info@city4you.cz" },
   { icon: MapPin, label: "Sídlo", value: "Ostrava, Moravskoslezský kraj" },
-  { icon: Building2, label: "IČO", value: "12345678" },
+  { icon: Building2, label: "IČO", value: "05690714" },
 ];
 
 function Kontakt() {
