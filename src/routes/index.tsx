@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Hammer, Shovel, Grid3x3, Droplets, Wrench, Truck } from "lucide-react";
 import heroImg from "@/assets/real-hero.jpg";
-import projDlazba from "@/assets/real-project-1.jpg";
-import projVykop from "@/assets/real-project-2.jpg";
-import projDrenaz from "@/assets/real-project-3.jpg";
-import projTrat from "@/assets/real-project-4.jpg";
-import projNamesti from "@/assets/real-project-5.jpg";
-import projBazen from "@/assets/real-project-6.jpg";
+import projectZemniDlazba from "@/assets/project-zemni-prace-dlazba.jpg";
+import projectBazenDlazba from "@/assets/project-bazen-dlazba.jpg";
+import projectOdvodneniDrenaz from "@/assets/project-odvodneni-drenaz.jpg";
+import projectKrnovSkrochovice from "@/assets/project-krnov-skrochovice.jpg";
+import projectNoveLauby from "@/assets/project-nove-lauby-ostrava.jpg";
+import projectLfVitkovice from "@/assets/project-lf-ostrava-vitkovice.jpg";
 import partner1 from "@/assets/partner-1.png";
 import partner2 from "@/assets/partner-2.png";
 import partner3 from "@/assets/partner-3.png";
@@ -37,12 +37,12 @@ const services = [
 ];
 
 const projects = [
-  { img: projNamesti, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
-  { img: projDlazba, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
-  { img: projBazen, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
-  { img: projVykop, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
-  { img: projTrat, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
-  { img: projDrenaz, title: "Odvodnění a drenáž", tag: "Průmysl", year: "2023" },
+  { img: projectZemniDlazba, title: "Zemní práce a pokládka dlažby", tag: "Rezidence", year: "2024" },
+  { img: projectBazenDlazba, title: "Dlažba a betonování lému bazénu", tag: "Soukromý projekt", year: "2023" },
+  { img: projectOdvodneniDrenaz, title: "Odvodnění a drenáž", tag: "Průmysl", year: "2023" },
+  { img: projectKrnovSkrochovice, title: "Oprava trati Krnov – Skrochovice", tag: "Železnice", year: "2024" },
+  { img: projectNoveLauby, title: "Realizace dlažeb Nové Lauby", tag: "Ostrava", year: "2024" },
+  { img: projectLfVitkovice, title: "Zemní práce LF Ostrava-Vítkovice", tag: "Veřejná zakázka", year: "2024" },
 ];
 
 const partners = [
