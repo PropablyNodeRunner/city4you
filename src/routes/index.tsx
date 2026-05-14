@@ -212,17 +212,17 @@ function Index() {
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="flex w-max animate-marquee gap-16 lg:gap-24 items-center">
+          <div className="flex w-max animate-marquee items-center">
             {[...partners, ...partners].map((p, i) => (
               <div
                 key={`${p.name}-${i}`}
-                className="shrink-0 w-[22vw] md:w-[18vw] lg:w-[14vw] flex items-center justify-center"
+                className="shrink-0 w-[60vw] sm:w-[40vw] md:w-[30vw] lg:w-[25vw] px-10 lg:px-16 flex items-center justify-center"
               >
                 <img
                   src={p.img}
                   alt={p.name}
                   loading="lazy"
-                  className="max-h-20 lg:max-h-24 w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all"
+                  className="max-h-16 lg:max-h-20 w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all"
                 />
               </div>
             ))}
