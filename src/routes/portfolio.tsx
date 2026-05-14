@@ -23,27 +23,6 @@ export const Route = createFileRoute("/portfolio")({
 
 const projects = [
   {
-    img: projectKrnovSkrochovice,
-    title: "Oprava trati v úseku Krnov – Skrochovice",
-    cat: "Železniční stavby",
-    year: "2024",
-    desc: "Zemní práce a úpravy spodku trati v rámci celkové opravy úseku.",
-  },
-  {
-    img: projectNoveLauby,
-    title: "Realizace dlažeb — Nové Lauby Ostrava",
-    cat: "Veřejné prostranství",
-    year: "2024",
-    desc: "Pokládka velkoformátové dlažby na nově revitalizovaném prostranství.",
-  },
-  {
-    img: projectLfVitkovice,
-    title: "Zemní a výkopové práce — LF Ostrava-Vítkovice",
-    cat: "Veřejná zakázka",
-    year: "2024",
-    desc: "Výkopy a příprava základů v areálu Lékařské fakulty.",
-  },
-  {
     img: projectZemniDlazba,
     title: "Zemní práce a pokládka dlažby",
     cat: "Rezidenční",
@@ -63,6 +42,27 @@ const projects = [
     cat: "Průmyslový areál",
     year: "2023",
     desc: "Návrh a realizace drenážního systému průmyslové haly.",
+  },
+  {
+    img: projectKrnovSkrochovice,
+    title: "Oprava trati v úseku Krnov – Skrochovice",
+    cat: "Železniční stavby",
+    year: "2024",
+    desc: "Zemní práce a úpravy spodku trati v rámci celkové opravy úseku.",
+  },
+  {
+    img: projectNoveLauby,
+    title: "Realizace dlažeb — Nové Lauby Ostrava",
+    cat: "Veřejné prostranství",
+    year: "2024",
+    desc: "Pokládka velkoformátové dlažby na nově revitalizovaném prostranství.",
+  },
+  {
+    img: projectLfVitkovice,
+    title: "Zemní a výkopové práce — LF Ostrava-Vítkovice",
+    cat: "Veřejná zakázka",
+    year: "2024",
+    desc: "Výkopy a příprava základů v areálu Lékařské fakulty.",
   },
 ];
 
