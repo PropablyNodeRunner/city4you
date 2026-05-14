@@ -49,8 +49,8 @@ function ONas() {
           <dl className="space-y-5 font-mono text-sm">
             {[
               ["Název", "City4you s.r.o."],
-              ["IČO", "12345678"],
-              ["DIČ", "CZ12345678"],
+              ["IČO", "05690714"],
+              ["DIČ", "CZ05690714"],
               ["Sídlo", "Ostrava, Moravskoslezský kraj"],
               ["Působnost", "MSK a okolí"],
               ["Založeno", "2013"],

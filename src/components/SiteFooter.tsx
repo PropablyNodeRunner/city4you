@@ -30,12 +30,12 @@ export function SiteFooter() {
             </li>
             <li>
               <span className="opacity-50">TEL: </span>
-              <a href="tel:+420777000000" className="hover:text-primary">
-                +420 777 000 000
+              <a href="tel:+420736140001" className="hover:text-primary">
+                +420 736 140 001
               </a>
             </li>
             <li>
-              <span className="opacity-50">IČO: </span>12345678
+              <span className="opacity-50">IČO: </span>05690714
             </li>
           </ul>
         </div>

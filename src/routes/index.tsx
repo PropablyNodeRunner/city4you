@@ -7,9 +7,12 @@ import projDrenaz from "@/assets/real-project-3.jpg";
 import projTrat from "@/assets/real-project-4.jpg";
 import projNamesti from "@/assets/real-project-5.jpg";
 import projBazen from "@/assets/real-project-6.jpg";
-import partner1 from "@/assets/partner-1.jpg";
-import partner2 from "@/assets/partner-2.jpg";
-import partner3 from "@/assets/partner-3.jpg";
+import partner1 from "@/assets/partner-1.png";
+import partner2 from "@/assets/partner-2.png";
+import partner3 from "@/assets/partner-3.png";
+import partner4 from "@/assets/partner-4.png";
+import partner5 from "@/assets/partner-5.png";
+import partner6 from "@/assets/partner-6.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +49,9 @@ const partners = [
   { img: partner1, name: "Partner 1" },
   { img: partner2, name: "Partner 2" },
   { img: partner3, name: "Partner 3" },
+  { img: partner4, name: "Městský obvod Poruba" },
+  { img: partner5, name: "Bystroň Group" },
+  { img: partner6, name: "Ostravské komunikace" },
 ];
 
 function Index() {
@@ -197,7 +203,7 @@ function Index() {
             Spolupracujeme s
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
           {partners.map((p) => (
             <div
               key={p.name}
