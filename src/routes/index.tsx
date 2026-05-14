@@ -203,20 +203,30 @@ function Index() {
             Spolupracujeme s
           </h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-          {partners.map((p) => (
-            <div
-              key={p.name}
-              className="bg-background border border-foreground/10 p-8 flex items-center justify-center h-32"
-            >
-              <img
-                src={p.img}
-                alt={p.name}
-                loading="lazy"
-                className="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all"
-              />
-            </div>
-          ))}
+        <div
+          className="relative overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee gap-16 lg:gap-24 items-center">
+            {[...partners, ...partners].map((p, i) => (
+              <div
+                key={`${p.name}-${i}`}
+                className="shrink-0 w-[22vw] md:w-[18vw] lg:w-[14vw] flex items-center justify-center"
+              >
+                <img
+                  src={p.img}
+                  alt={p.name}
+                  loading="lazy"
+                  className="max-h-20 lg:max-h-24 w-auto object-contain grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
