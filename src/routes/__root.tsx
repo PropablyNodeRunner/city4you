@@ -71,28 +71,81 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "City4You redesign offers a modern Czech website to showcase a construction company's services and projects." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cf7f9705-371a-4ef7-ab06-87b34ac43c08/id-preview-5de8a5d8--aaf6f6ad-1952-4d29-b72b-b7369a475e04.lovable.app-1778576944204.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cf7f9705-371a-4ef7-ab06-87b34ac43c08/id-preview-5de8a5d8--aaf6f6ad-1952-4d29-b72b-b7369a475e04.lovable.app-1778576944204.png" },
-    ],
+   meta: [
+  { charSet: "utf-8" },
+  { name: "viewport", content: "width=device-width, initial-scale=1" },
+
+  {
+    title:
+      "City4you s.r.o. — Stavební, zemní a výkopové práce Ostrava",
+  },
+  {
+    name: "description",
+    content:
+      "City4you s.r.o. realizuje stavební, zemní a výkopové práce v Ostravě a Moravskoslezském kraji. Zajišťujeme pokládku dlažby, odvodnění, drenáže, demolice a kompletní přípravu staveb.",
+  },
+  {
+    name: "author",
+    content: "City4you s.r.o.",
+  },
+
+  {
+    property: "og:title",
+    content:
+      "City4you s.r.o. — Stavební, zemní a výkopové práce Ostrava",
+  },
+  {
+    property: "og:description",
+    content:
+      "Stavební, zemní a výkopové práce v Ostravě a Moravskoslezském kraji. Pokládka dlažby, odvodnění, drenáže, demolice a realizace stavebních projektů.",
+  },
+  {
+    property: "og:type",
+    content: "website",
+  },
+  {
+    property: "og:locale",
+    content: "cs_CZ",
+  },
+  {
+    property: "og:url",
+    content: "https://city4you.cz",
+  },
+  {
+    property: "og:site_name",
+    content: "City4you s.r.o.",
+  },
+
+  {
+    name: "twitter:card",
+    content: "summary_large_image",
+  },
+  {
+    name: "twitter:title",
+    content:
+      "City4you s.r.o. — Stavební a zemní práce Ostrava",
+  },
+  {
+    name: "twitter:description",
+    content:
+      "Stavební, zemní a výkopové práce v Ostravě a Moravskoslezském kraji.",
+  },
+],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
+  {
+    rel: "stylesheet",
+    href: appCss,
+  },
+  {
+    rel: "icon",
+    type: "image/png",
+    href: "/favicon.png",
+  },
+  {
+    rel: "apple-touch-icon",
+    href: "/favicon.png",
+  },
+],
   }),
   shellComponent: RootShell,
   component: RootComponent,
