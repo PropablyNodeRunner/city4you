@@ -16,101 +16,117 @@ export const Route = createFileRoute("/poptavka")({
   component: Poptavka,
 });
 
+const WEB3FORMS_ACCESS_KEY = "681c4d3c-3303-4c7e-8eb0-5e7e41f8db99";
+
 function Poptavka() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setSending(true);
+    setError("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+    formData.append("subject", "Nová poptávka z webu City4you.cz");
+    formData.append("from_name", "City4you.cz");
+    formData.append("to_email", "info@city4you.cz");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSent(true);
+        form.reset();
+      } else {
+        setError("Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.");
+      }
+    } catch {
+      setError("Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.");
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <>
       <PageHeader
         eyebrow="Poptávka"
-        title="Pošlete nám zadání"
-        description="Vyplňte krátký formulář s popisem vaší zakázky. Reagujeme do 48 hodin v pracovních dnech."
+        title="Nezávazná poptávka"
+        description="Popište nám stručně, co potřebujete realizovat. Ozveme se vám do 48 hodin v pracovních dnech."
       />
 
-      <Section className="grid lg:grid-cols-12 gap-12">
-        <aside className="lg:col-span-4 space-y-8">
+      <Section className="grid md:grid-cols-[0.8fr_1.2fr] gap-10">
+        <div className="space-y-6">
           <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-widest text-primary mb-4">
+            <p className="text-xs uppercase tracking-widest text-primary font-bold mb-3">
               / Co od vás potřebujeme
-            </h3>
-            <ul className="space-y-3 text-sm text-foreground/70">
-              <li className="flex gap-3">
-                <span className="font-mono text-primary">→</span>
-                Lokalitu, kde se zakázka odehrává
-              </li>
-              <li className="flex gap-3">
-                <span className="font-mono text-primary">→</span>
-                Druh požadované práce
-              </li>
-              <li className="flex gap-3">
-                <span className="font-mono text-primary">→</span>
-                Předpokládaný termín realizace
-              </li>
-              <li className="flex gap-3">
-                <span className="font-mono text-primary">→</span>
-                Stručný popis nebo projektovou dokumentaci
-              </li>
+            </p>
+            <ul className="space-y-3 text-sm opacity-80">
+              <li>→ Lokalitu, kde se zakázka odehrává</li>
+              <li>→ Druh požadované práce</li>
+              <li>→ Předpokládaný termín realizace</li>
+              <li>→ Stručný popis nebo projektovou dokumentaci</li>
             </ul>
           </div>
-          <div className="border-t border-foreground/10 pt-6 font-mono text-sm space-y-2">
-            <p>
-              <span className="opacity-50">TEL: </span>
-              <a href="tel:+420736140001" className="hover:text-primary">
-                +420 736 140 001
-              </a>
+
+          <div className="border border-border p-6 space-y-3">
+            <p className="text-xs uppercase tracking-widest text-primary font-bold">
+              Přímý kontakt
             </p>
-            <p>
-              <span className="opacity-50">EMAIL: </span>
-              <a href="mailto:info@city4you.cz" className="hover:text-primary">
-                info@city4you.cz
-              </a>
+            <p className="text-sm">
+              <strong>TEL:</strong> +420 736 140 001
+            </p>
+            <p className="text-sm">
+              <strong>EMAIL:</strong> info@city4you.cz
             </p>
           </div>
-        </aside>
+        </div>
 
-        <form
-          className="lg:col-span-8 bg-foreground text-background p-8 lg:p-12 space-y-6"
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-          }}
-        >
+        <form onSubmit={handleSubmit} className="space-y-4 border border-border p-6">
           {sent ? (
-            <div className="py-16 text-center">
-              <div className="text-primary font-mono text-xs uppercase tracking-[0.2em] mb-4">
+            <div className="space-y-4">
+              <p className="text-xs uppercase tracking-widest text-primary font-bold">
                 / Odesláno
-              </div>
-              <h3 className="text-3xl font-extrabold tracking-tighter uppercase mb-4">
-                Děkujeme za poptávku
-              </h3>
-              <p className="opacity-70 max-w-md mx-auto">
-                Ozveme se vám do 48 hodin v pracovních dnech.
               </p>
+              <h3 className="text-2xl font-bold">Děkujeme za poptávku</h3>
+              <p className="opacity-80">
+                Vaše poptávka byla odeslána. Ozveme se vám do 48 hodin v pracovních dnech.
+              </p>
+              <button
+                type="button"
+                onClick={() => setSent(false)}
+                className="bg-primary text-primary-foreground font-bold px-6 py-3 uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors"
+              >
+                Odeslat další poptávku
+              </button>
             </div>
           ) : (
             <>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Jméno a příjmení" name="name" required />
-                <Field label="Telefon" name="phone" type="tel" required />
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <Field label="Email" name="email" type="email" required />
-                <Field label="Lokalita" name="location" required />
-              </div>
+              <Field label="Jméno a příjmení" name="name" required />
+              <Field label="Telefon" name="telefon" type="tel" required />
+              <Field label="E-mail" name="email" type="email" required />
+              <Field label="Lokalita realizace" name="lokalita" required />
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase font-bold tracking-widest text-primary">
                   Typ služby
                 </label>
                 <select
-                  name="service"
-                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
-                  defaultValue=""
+                  name="typ_sluzby"
                   required
+                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
                 >
-                  <option value="" disabled>
-                    Vyberte službu
-                  </option>
+                  <option value="">Vyberte službu</option>
                   <option>Stavební práce</option>
                   <option>Zemní a výkopové práce</option>
                   <option>Pokládka dlažby</option>
@@ -126,18 +142,35 @@ function Poptavka() {
                 </label>
                 <textarea
                   name="message"
-                  rows={5}
-                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary resize-none"
                   required
+                  rows={6}
+                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
                 />
               </div>
 
+              <input
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              {error && (
+                <p className="text-sm text-red-600 font-medium">
+                  {error}
+                </p>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-primary text-primary-foreground font-bold py-4 uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors"
+                disabled={sending}
+                className="w-full bg-primary text-primary-foreground font-bold py-4 uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Odeslat poptávku →
+                {sending ? "Odesílám..." : "Odeslat poptávku →"}
               </button>
+
               <p className="text-[10px] opacity-50 font-mono uppercase tracking-widest">
                 Odesláním souhlasíte se zpracováním osobních údajů pro účely poptávky.
               </p>
