@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { PageHeader, Section } from "@/components/Section";
 
 export const Route = createFileRoute("/poptavka")({
@@ -23,7 +23,7 @@ function Poptavka() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
     setError("");
@@ -34,7 +34,6 @@ function Poptavka() {
     formData.append("access_key", WEB3FORMS_ACCESS_KEY);
     formData.append("subject", "Nová poptávka z webu City4you.cz");
     formData.append("from_name", "City4you.cz");
-    formData.append("to_email", "info@city4you.cz");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -48,10 +47,14 @@ function Poptavka() {
         setSent(true);
         form.reset();
       } else {
-        setError("Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.");
+        setError(
+          "Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.",
+        );
       }
     } catch {
-      setError("Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.");
+      setError(
+        "Poptávku se nepodařilo odeslat. Zavolejte nám prosím nebo napište e-mail.",
+      );
     } finally {
       setSending(false);
     }
@@ -92,30 +95,43 @@ function Poptavka() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 border border-border p-6">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-[#111111] border border-border p-6 md:p-8 space-y-6"
+        >
           {sent ? (
-            <div className="space-y-4">
+            <div className="space-y-5 text-white">
               <p className="text-xs uppercase tracking-widest text-primary font-bold">
                 / Odesláno
               </p>
               <h3 className="text-2xl font-bold">Děkujeme za poptávku</h3>
-              <p className="opacity-80">
-                Vaše poptávka byla odeslána. Ozveme se vám do 48 hodin v pracovních dnech.
+              <p className="text-white/75">
+                Vaše poptávka byla odeslána. Ozveme se vám do 48 hodin v
+                pracovních dnech.
               </p>
+
               <button
                 type="button"
-                onClick={() => setSent(false)}
-                className="bg-primary text-primary-foreground font-bold px-6 py-3 uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors"
+                onClick={() => {
+                  setSent(false);
+                  setError("");
+                }}
+                className="w-full bg-primary text-primary-foreground font-bold py-4 uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors"
               >
-                Odeslat další poptávku
+                Odeslat další poptávku →
               </button>
             </div>
           ) : (
             <>
-              <Field label="Jméno a příjmení" name="name" required />
-              <Field label="Telefon" name="telefon" type="tel" required />
-              <Field label="E-mail" name="email" type="email" required />
-              <Field label="Lokalita realizace" name="lokalita" required />
+              <div className="grid md:grid-cols-2 gap-6">
+                <Field label="Jméno a příjmení" name="name" required />
+                <Field label="Telefon" name="telefon" type="tel" required />
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <Field label="Email" name="email" type="email" required />
+                <Field label="Lokalita" name="lokalita" required />
+              </div>
 
               <div className="space-y-2">
                 <label className="text-[10px] uppercase font-bold tracking-widest text-primary">
@@ -124,15 +140,19 @@ function Poptavka() {
                 <select
                   name="typ_sluzby"
                   required
-                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
+                  className="w-full bg-[#1b1b1d] border border-white/15 px-4 py-3 text-sm text-white focus:outline-none focus:border-primary"
                 >
                   <option value="">Vyberte službu</option>
-                  <option>Stavební práce</option>
-                  <option>Zemní a výkopové práce</option>
-                  <option>Pokládka dlažby</option>
-                  <option>Odvodnění a drenáže</option>
-                  <option>Demolice</option>
-                  <option>Jiné</option>
+                  <option value="Stavební práce">Stavební práce</option>
+                  <option value="Zemní a výkopové práce">
+                    Zemní a výkopové práce
+                  </option>
+                  <option value="Pokládka dlažby">Pokládka dlažby</option>
+                  <option value="Odvodnění a drenáže">
+                    Odvodnění a drenáže
+                  </option>
+                  <option value="Demolice">Demolice</option>
+                  <option value="Jiné">Jiné</option>
                 </select>
               </div>
 
@@ -144,7 +164,7 @@ function Poptavka() {
                   name="message"
                   required
                   rows={6}
-                  className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
+                  className="w-full bg-[#1b1b1d] border border-white/15 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-primary"
                 />
               </div>
 
@@ -158,9 +178,7 @@ function Poptavka() {
               />
 
               {error && (
-                <p className="text-sm text-red-600 font-medium">
-                  {error}
-                </p>
+                <p className="text-sm text-red-400 font-medium">{error}</p>
               )}
 
               <button
@@ -171,8 +189,9 @@ function Poptavka() {
                 {sending ? "Odesílám..." : "Odeslat poptávku →"}
               </button>
 
-              <p className="text-[10px] opacity-50 font-mono uppercase tracking-widest">
-                Odesláním souhlasíte se zpracováním osobních údajů pro účely poptávky.
+              <p className="text-[10px] opacity-50 font-mono uppercase tracking-widest text-white">
+                Odesláním souhlasíte se zpracováním osobních údajů pro účely
+                poptávky.
               </p>
             </>
           )}
@@ -202,7 +221,7 @@ function Field({
         type={type}
         name={name}
         required={required}
-        className="w-full bg-accent border border-background/20 px-4 py-3 text-sm focus:outline-none focus:border-primary"
+        className="w-full bg-[#1b1b1d] border border-white/15 px-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-primary"
       />
     </div>
   );
